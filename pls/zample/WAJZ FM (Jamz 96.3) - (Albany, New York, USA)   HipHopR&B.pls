@@ -1,0 +1,9 @@
+[playlist]
+File1=http://3103.live.streamtheworld.com:80/WAJZFMAAC_SC
+File2=http://3103.live.streamtheworld.com:3690/WAJZFMAAC_SC
+File3=http://3103.live.streamtheworld.com:443/WAJZFMAAC_SC
+Title1=WAJZFMAAC_SC
+Title2=WAJZFMAAC_SC-Bak
+Length1=-1
+NumberOfEntries=3
+Version=2

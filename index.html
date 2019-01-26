@@ -1,0 +1,487 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
+    <script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
+    <style type="text/css">
+        *{
+          margin: 0;
+          padding: 0;
+        }
+        #main{
+          /* width: 1920px;
+          height: 1103px; */
+          /* background-image: url(https://cn.bing.com/az/hprichbg/rb/DivingEmperors_EN-US3806801103_1920x1080.jpg);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover; */
+          /* background-color: #F0F0F0; */
+        }
+        #glass{
+          width: 1850px;
+          height: 1040px;
+          position: absolute;
+          overflow: hidden;
+          top: 320px;
+          left: 965px;
+          margin-left: -930px;
+          margin-top: -290px;
+          border-radius: 16px;
+        }
+        #glass:before{
+          width: 1900px;
+          content: "";
+          position: absolute;
+          top: -25px;
+          left: -25px;
+          bottom: 0;
+          right: 0;
+          background: inherit;
+          box-shadow: inset 0 0 0 5000px rgba(255,255,255,0.5);
+          filter: blur(10px);
+        }
+        .item {
+            display: inline-block;
+            position: relative;
+            padding: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 66px;
+        }
+        img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+        .splititle {
+            text-align: center;
+            position: relative;
+            font-family: Arial;
+        }
+        .splitter {
+            border: none;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0));
+            position: relative;
+        }
+        video {
+            position: absolute;
+            object-fit: fill;
+            width: 100%;
+            height: 100vh;
+            min-height: 100%;
+        }
+        #info {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            position: relative;
+        }
+        .plyr--full-ui {
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            display: inline-block;
+        }
+        .plyr--audio .plyr__controls {
+            padding: 0px !important;
+            background: none !important;
+        }
+        .plyr--audio .plyr__control:hover {
+            border-radius: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+    var radioMap = [
+        {
+            ICON : "1 LIVE Germany Westdeutscher - tunein.com.png",
+            SOURCE : 'http://dg-wdr-http-fra-dtag-cdn.cast.addradio.de/wdr/1live/live/mp3/128/stream.mp3?ar-distributor=f0a1',
+            TYPE: "RADIO - POP",
+        },
+        {
+            ICON : "102.7 KIIS FM - radio.net.png",
+            SOURCE : 'http://c2icyelb.prod.playlists.ihrhls.com/185_icy',
+            TYPE: "RADIO - POP",
+            NOTE1: 'http://kiis1027.radio.net/',
+        },
+        {
+            ICON : "Adult Hits US - tunein.com.png",
+            SOURCE : 'http://tunein4.streamguys1.com/adhtsfree1?aw_0_1st.playerid=RadioTime&aw_0_1st.skey=1546605131',
+            TYPE: "RADIO - POP",
+            NOTE1: 'https://tunein.com/radio/Adult-Hits-s247154/',
+        },
+        {
+            ICON : "BBC Radio 1 - www.internetradiouk.com.png",
+            SOURCE : 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://www.internetradiouk.com/',
+        },
+        {
+            ICON : "Billboardrad 100 Top 40 Hits from across the planet - billboardradio.laylio.radioactive.sg.png",
+            SOURCE : 'http://billboardradio.rastream.com/gfm-todaysmix?awparams=companionads%3Afalse%3Btags%3Aradioactive%3Bstationid%3Agfm-todaysmix&playerid=billboardradioachina_web&authtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvaWQiOiJsYXlsaW8iLCJpYXQiOjE1NDUyMDEyMTUsImV4cCI6MTU0NTI4NzYxNX0.fRBa0SoWYYM8Zcr4pktQlZFc3jPZfigJ9CHebsLDK2o&lan=%5B%22en%22%5D&setLanguage=true&listenerid=7473e700f12bb18e7608603e7e58da34',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://billboardradio.laylio.radioactive.sg/?p=cea0ad59f9689e8a06500b4709001762&amp;s=gfm-todaysmix',
+        },
+        {
+            ICON : "Capital London - 95.8 Capital FM - The UK's No.1 Hit Music Station - media-ice.musicradio.com.png",
+            SOURCE : 'http://media-ice.musicradio.com:80/CapitalMP3',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://media-ice.musicradio.com/CapitalMP3.m3u',
+            NOTE2 : 'https://tunein.com/radio/Capital-London-958-s16534/',
+            NOTE3 : 'https://www.capitalfm.com/london/',
+        },
+        {
+            ICON : "CRI EZ FM Beijing - http.qingting.fm.png",
+            SOURCE : 'http://http.qingting.fm/live/1006/64k.mp3',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://streema.com/radios/play/9098',
+            NOTE2 : 'https://www.capitalfm.com/london/',
+            NOTE3: 'http://www.surfmusic.de/radio-station/cri-easy-fm,19579.html',
+        },
+        {
+            ICON : "Hitsradio - hitsradiotodayshits.radio.net.png",
+            SOURCE : 'http://19353.live.streamtheworld.com/977_HITS.mp3',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://977todayshits.radio.net/',
+        },
+        {
+            ICON : "soft 103.9 familiar favourites canada - soft1039.net.png",
+            SOURCE : 'https://castanet.leanstream.co/CKOOFM-MP3?args=3rdparty_02',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'https://soft1039.net',
+        },
+        // {
+        //     ICON : "Hot Hits Atlanta - streame.co.png",
+        //     SOURCE : 'http://173.192.207.51:8062/',
+        //     TYPE: "RADIO - POP",
+        //     NOTE1 : 'https://streame.co/en/player/Hot_Hits_Atlanta_Web_Atlanta',
+        // },
+        {
+            ICON : "Indie Music - tunein.com.png",
+            SOURCE : 'http://tunein4.streamguys1.com/indclfree1',
+            TYPE: "RADIO - POP",
+        },
+        // {
+        //     ICON : "KALW FM 56.9K Favorites - live.str3am.com.png",
+        //     SOURCE : 'http://live.str3am.com:2430/listen.pls',
+        //     TYPE: "RADIO - POP",
+        //     NOTE1 : 'https://tunein.com/radio/KALW-917-s31426/',
+        // },
+        {
+            ICON : "KCBI, 90.9 FM, Dallas Fort Worth, TX - tunein.com.png",
+            SOURCE : 'http://13983.live.streamtheworld.com:3690/KCBIFM_SC?DIST=TuneIn&TGT=TuneIn&maxServers=2&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6I',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'https://tunein.com/radio/KCBI-909-s31951/',
+        },
+        {
+            ICON : "Musik.ChartHits on rautemusik.fm - www.surfmusic.de.png",
+            SOURCE : 'http://138.201.20.106/charthits',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'http://www.surfmusic.de/radio-station/musik-charthits-on-rautemusik-fm-modem,17652.html',
+            NOTE2 : 'https://www.charthits.fm/',
+        },
+        {
+            ICON : "NRJ radio Kiev - bestradio.fm.png",
+            SOURCE : 'http://cast.nrj.in.ua/nrj',
+            TYPE: "RADIO - POP",
+            NOTE1 : 'https://bestradio.fm/eng/ukraine/843-nrj-ua-energy.html',
+        },
+        {
+            ICON : "Topradio Latvia - www.topradio.lv.png",
+            SOURCE : 'http://195.13.200.164:8080/',
+            TYPE: "RADIO - EXOTIC",
+        },
+        {
+            ICON : "BBC Radio Asian Network - internetradiouk.com.png",
+            SOURCE : 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_asianet_mf_p',
+            TYPE: "RADIO - EXOTIC",
+            NOTE1 : 'http://www.internetradiouk.com/bbc-asian/',
+        },
+        {
+            ICON : "Metro 95.1 Buenos Aires, Argentina - streema.com.png",
+            SOURCE : 'http://mp3.metroaudio1.stream.avstreaming.net:7200/metro',
+            TYPE: "RADIO - EXOTIC",
+            NOTE1 : 'https://www.metro951.com/',
+            NOTE2 : 'http://streema.com/radios/play/1',
+        },
+        {
+            ICON : "Discover Trance UK - internetradiouk.com.png",
+            SOURCE : 'http://chicago.discovertrance.com:9216/;',
+            TYPE: "RADIO - DJ",
+            NOTE1 : 'http://www.internetradiouk.com/discover-trance-uk/',
+        },
+        {
+            ICON : "BBC World Service - bbcworldservice.radio.net.png",
+            SOURCE : 'http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk',
+            TYPE: "RADIO - NEWS",
+            NOTE1 : 'http://bbcworldservice.radio.net/',
+        },
+        {
+            ICON : "BBC Radio 4 - www.internetradiouk.com.png",
+            SOURCE : 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_q',
+            TYPE: "RADIO - NEWS",
+            NOTE1 : 'http://bbcworldservice.radio.net/',
+        },
+        {
+            ICON : "Easy FM Curacao Arikokweg - easyfm.com.png",
+            SOURCE : 'http://64.150.176.42:8011/live',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'http://streema.com/radios/play/9098',
+            NOTE2 : 'http://easyfm.com/',
+        },
+        {
+            ICON : "Energy FM Almati, Kazakhstan - tunein.com.png",
+            SOURCE : 'http://89.219.34.117:8008/NEWENERGY_256k',
+            TYPE: "RADIO - CLASSIC",
+        },
+        {
+            ICON : "BBC Radio 2 - www.internetradiouk.com.png",
+            SOURCE : 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p',
+            TYPE: "RADIO - CLASSIC",
+        },
+        {
+            ICON : "ATLANTA HIP HOP RADIO - raddio.net.png",
+            SOURCE : 'http://listen.radionomy.com/atltop20comatlantahiphopradio',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'https://raddio.net/211689-atltop20-com-atlanta-hip-hop-radio/',
+            NOTE2: 'https://atltop20.com/',
+        },
+        {
+            ICON : "Jamendo Lounge - jamendolounge.radio.net.png",
+            SOURCE : 'http://streaming.radionomy.com/879TheMix?lang=en-US%2cen%3bq%3d0.8',
+            TYPE: "RADIO - CLASSIC",
+        },
+        {
+            ICON : "Radio Caroline UK - internetradiouk.com.png",
+            SOURCE : 'http://sc6.radiocaroline.net:8040/stream/1/',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'http://www.internetradiouk.com/caroline/',
+        },
+        {
+            ICON : "Imagine 104.9 FM - internetradiouk.com.png",
+            SOURCE : 'http://webradio.radiomonitor.com/stream/Imagine',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'http://www.internetradiouk.com/imagine/',
+        },
+        {
+            ICON : "24 7 live from Nîmes (France)  - nemoradio.fr.png",
+            SOURCE : 'http://91.121.153.12:9154/stream',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'http://nemoradio.fr',
+        },
+        {
+            ICON : "Jazz FM UK - internetradiouk.com.png",
+            SOURCE : 'http://tx.sharp-stream.com/icecast.php?i=jazzfmmobile.mp3',
+            TYPE: "RADIO - CLASSIC",
+            NOTE1 : 'http://www.internetradiouk.com/jazz-fm/',
+        },
+        {
+            ICON : "Smooth Global Living - smoothlounge.com.png",
+            SOURCE : 'http://144.217.158.181:80/live',
+            TYPE: "RADIO - HOUSE",
+            NOTE1 : 'https://www.smoothjazz.com',
+        },
+        {
+            ICON : "Whisperings Solo Piano Radio - pianosolo.streamguys.net.png",
+            SOURCE : 'http://pianosolo.streamguys.net/live',
+            TYPE: "RADIO - HOUSE",
+            NOTE1 : 'http://solopiano.radio.net/',
+            NOTE1 : 'http://solopianoradio.com/player-free.htm',
+        },
+        {
+            ICON : "Classic FM UK - internetradiouk.com.png",
+            SOURCE : 'http://vis.media-ice.musicradio.com/ClassicFMMP3',
+            TYPE: "RADIO - HOUSE",
+            NOTE1 : 'http://www.internetradiouk.com/classic-fm/',
+        },
+        {
+            ICON : "ABC Jazz - radionomy.com.png",
+            SOURCE : 'http://listen.radionomy.com/abc-jazz',
+            TYPE: "RADIO - HOUSE",
+            NOTE1: 'https://tunein.com/radio/Adult-Hits-s247154/',
+        },
+        {
+            ICON : "BBC Radio 3 - www.internetradiouk.com.png",
+            SOURCE : 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p',
+            TYPE: "RADIO - HOUSE",
+        },
+        {
+            ICON : "Fun Radio UK - internetradiouk.com.png",
+            SOURCE : 'http://edge-ads-03-gos2.sharp-stream.com/funkids.mp3',
+            TYPE: "RADIO - KID",
+            NOTE1 : 'http://www.internetradiouk.com/fun-radio-uk/',
+        },
+        {
+            ICON : "Radio Garden Antenne Bayern - radio.garden.png",
+            SOURCE : 'http://radio.garden/live/munich/antenne/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "Welcome to LA KCRW - tunein.com.png",
+            SOURCE : 'https://tunein.com/podcasts/Storytelling-Podcasts/Welcome-to-LA-p1126534/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "The Joe Budden Podcast - tunein.com.png",
+            SOURCE : 'https://tunein.com/podcasts/Music-Podcasts/The-Joe-Budden-Podcast-p820288/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "html5 live stream player radio.png",
+            SOURCE : 'https://www.flashradio.info/shoutcast/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "internet-radio.com.png",
+            SOURCE : 'https://www.internet-radio.com/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "www.internetradiouk.com.png",
+            SOURCE : 'http://www.internetradiouk.com/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "Sub FM.png",
+            SOURCE : 'https://www.sub.fm/listen/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "radioplayer.ca.png",
+            SOURCE : 'http://radioplayer.ca/player/index.html',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "live365.com.png",
+            SOURCE : 'https://live365.com/',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "www.digitalradiotracker.com.png",
+            SOURCE : 'http://www.digitalradiotracker.com',
+            TYPE: "VENDOR",
+        },
+        {
+            ICON : "love youth - www.xiami.com.png",
+            SOURCE : 'http://www.xiami.com/collect/135967088?spm=a1z1s.3061697.6856253.107.RsU488',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "Piano Jazz - www.radiotunes.com.png",
+            SOURCE : 'http://www.radiotunes.com/pianojazz',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "html5 live stream player.png",
+            SOURCE : 'https://www.flashradio.info/#examples',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "freeCodeCamp.org.png",
+            SOURCE : 'https://www.youtube.com/watch?v=vAKtNV8KcWg',
+            TYPE: "LIST",
+            NOTE1: 'Code Radio 🎧 + 💻 24/7 concentration music for programmers 🔥 jazzy beats from freeCodeCamp.org - YouTube',
+        },
+        {
+            ICON : "amplitudejs.png",
+            SOURCE : 'https://521dimensions.com/open-source/amplitudejs',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "radioforge.com.png",
+            SOURCE : 'https://www.radioforge.com/responsive-html5-radio-player/',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "benbriggs.net.png",
+            SOURCE : 'https://benbriggs.net/music',
+            TYPE: "LIST",
+        },
+        {
+            ICON : "artlist.io.png",
+            SOURCE : 'https://artlist.io/',
+            TYPE: "ART",
+        },
+        {
+            ICON : "istockphoto.com.png",
+            SOURCE : 'https://www.istockphoto.com/th/photos/focus-concept?mediatype=photography&page=2&phrase=focus%20concept&sort=mostpopular',
+            TYPE: "ART",
+            NOTE1: 'https://www.istockphoto.com/th/photos/focus-concept?page=2&sort=mostpopular&mediatype=photography&phrase=focus%20concept',
+        },
+    ];
+    console.log(radioMap);
+
+    function GetSrcByIcon(icn){
+        for (var key in radioMap) {
+            if ( radioMap[key].ICON == icn ) {
+                return radioMap[key].SOURCE;
+            }
+        }
+    }
+    function Focus(obj) {
+        obj.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)";
+    }
+    function Unfocus(obj) {
+        obj.style.boxShadow = null;
+    }
+    function Play(obj) {
+        var imgFileName = decodeURI(obj.children[0].src.replace(/^.*[\\\/]/, ''));
+        console.log(imgFileName);
+        var key = imgFileName.substr(0, imgFileName.lastIndexOf("."));
+        // console.log(key);
+        // var strm = radioMap.get(key);
+        var strm = GetSrcByIcon(imgFileName)
+        console.log(strm);
+
+        player.stop();
+        document.getElementById("player").children[0].src = strm;
+        document.getElementById("player").load();
+        player.play();
+
+        document.getElementById("info").innerText = key;
+    }
+    </script>
+</head>
+<body>
+    <!-- image background -->
+    <div id="main"></div>
+
+    <!-- video background -->
+    <video autoplay="autoplay" muted loop>
+        <!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" /> -->
+        <source src="vid/leaf_drip.mp4" type="video/mp4" />
+    </video>
+
+    <!-- glass panel -->
+    <div id="glass">
+        <audio id="player" controls><source src="" type="audio/mp3"></audio>
+        <script>const player = new Plyr('#player');</script>
+        <span id="info">streaming radio - now playing song information ...</span>
+
+        <div id="contents"></div>
+        <script type="text/javascript">
+            var contentsMap = new Map();
+            for (var key in radioMap) {
+                if (radioMap[key].SOURCE) {
+                    var type = radioMap[key].TYPE;
+                    // console.log(key);
+                    // console.log(type);
+                    // console.log(contentsMap.has(type) );
+                    if ( !contentsMap.has(type) ) {
+                        contentsMap.set(type, '<div class=\"splititle\">' + type + '</div><div class=\"splitter\"></div>');
+                    }
+
+                    if ( type.includes( "RADIO") ) {
+                        contentsMap.set(type, contentsMap.get(type) + "<div class=\"item\" onmouseover=\"Focus(this)\" onmouseout=\"Unfocus(this)\" onclick=\"Play(this)\"><img src=\"icn/" + radioMap[key].ICON + "\"></img></div>");
+                    }
+                    else{
+                        contentsMap.set(type, contentsMap.get(type) + "<a class=\"item\" onmouseover=\"Focus(this)\" onmouseout=\"Unfocus(this)\" href=\"" + radioMap[key].SOURCE + "\"><img src=\"icn/" + radioMap[key].ICON + "\"></img></a>");
+                    }
+                }
+            }
+
+            for (let [key, value] of contentsMap) {
+                // console.log(value);
+                document.getElementById("contents").innerHTML += value;
+            }
+        </script>
+    </div>
+</body>
+</html>

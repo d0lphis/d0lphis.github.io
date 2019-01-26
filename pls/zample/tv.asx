@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asx version="3.0">
+    <entry>
+        <title>mms://enmms.chinabroadcast.cn/fm91.5.wsx</title>
+        <ref href="mms://enmms.chinabroadcast.cn/fm91.5.wsx"/>
+    </entry>
+    <entry>
+        <title>mms://enmms.chinabroadcast.cn/fm91.5</title>
+        <ref href="mms://enmms.chinabroadcast.cn/fm91.5"/>
+    </entry>
+    <entry>
+        <title>mms://livexwb.cri.com.cn/fm915</title>
+        <ref href="mms://livexwb.cri.com.cn/fm915"/>
+    </entry>
+    <entry>
+        <title>mms://live.hitfm.cn/fm887</title>
+        <ref href="mms://live.hitfm.cn/fm887"/>
+    </entry>
+    <entry>
+        <title>mms://cctv.wm.llnwd.net/cctv_live_cctvnews</title>
+        <ref href="mms://cctv.wm.llnwd.net/cctv_live_cctvnews"/>
+    </entry>
+    <entry>
+        <title></title>
+        <ref href="http://ice-sov.musicradio.com:80/CapitalMP3"/>
+    </entry>
+    <entry>
+        <title>mms://stream.stationplaylist.com/cafecody</title>
+        <ref href="mms://stream.stationplaylist.com/cafecody"/>
+    </entry>
+    <entry>
+        <title>http://str43.streamakaci.com:6710</title>
+        <ref href="http://str43.streamakaci.com:6710"/>
+    </entry>
+    <entry>
+        <title>Streaming from http://radiomonitor.com</title>
+        <ref href="http://webradio.radiomonitor.com/stream/Imagine"/>
+    </entry>
+</asx>

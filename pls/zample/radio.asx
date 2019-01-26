@@ -1,0 +1,58 @@
+<ASX version = "3.0">
+<TITLE>Simple ASX Demo</TITLE>
+
+    <ENTRY>
+    <TITLE>China.Beijing - EasyFM</TITLE>
+    <REF href="mms://enmms.chinabroadcast.cn/fm91.5.wsx" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>China.Beijing - EasyFM</TITLE>
+    <REF href="mms://enmms.chinabroadcast.cn/fm91.5.wsx" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>China.Beijing - EasyFM</TITLE>
+    <REF href="mms://enmms.chinabroadcast.cn/fm91.5" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>China.Beijing - EasyFM</TITLE>
+    <REF href="mms://livexwb.cri.com.cn/fm915 " />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>China.Beijing - HitFM</TITLE>
+    <REF href="mms://live.hitfm.cn/fm887" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>China.Beijing - CCTV News</TITLE>
+    <REF href="mms://cctv.wm.llnwd.net/cctv_live_cctvnews" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>UK.Manchester - Imagine FM 104.9 Cheshire's Number 1 More Music Station </TITLE>
+    <REF href="http://webradio.radiomonitor.com/stream/Imagine" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>UK - Captial FM</TITLE>
+    <REF href="http://media-ice.musicradio.com/CapitalMP3.m3u" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>Spain.Barcelona - Flaix FM</TITLE>
+    <REF href="http://flaix.stream.flumotion.com/flaix/FLAIXfm.mp3.m3u" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>Spain - Caf¨¦ Cody</TITLE>
+    <REF href="mms://stream.stationplaylist.com/cafecody" />
+    </ENTRY>
+
+    <ENTRY>
+    <TITLE>Belgium.Brussels - ImagineFM</TITLE>
+    <REF href="http://str43.streamakaci.com:6710" />
+    </ENTRY>
+</ASX>

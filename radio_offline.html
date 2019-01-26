@@ -1,0 +1,388 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
+    <script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
+    <style type="text/css">
+        *{
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+        }
+        #main{
+          width: 1920px;
+          height: 1103px;
+          /* background-image: url(https://cn.bing.com/az/hprichbg/rb/DivingEmperors_EN-US3806801103_1920x1080.jpg);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover; */
+          /* background-color: #C7EDCC; */
+          /* background-color: gray; */
+        }
+        #glass{
+          width: 1850px;
+          height: 1040px;
+          background: inherit;
+          position: absolute;
+          overflow: hidden;
+          top: 320px;
+          left: 965px;
+          margin-left: -930px;
+          margin-top: -290px;
+          border-radius: 16px;
+        }
+        #glass:before{
+          width: 1900px;
+          height: 1090px;
+          content: "";
+          position: absolute;
+          top: -25px;
+          left: -25px;
+          bottom: 0;
+          right: 0;
+          background: inherit;
+          box-shadow: inset 0 0 0 5000px rgba(255,255,255,0.5);
+          filter: blur(10px);
+        }
+        #content{
+          width: 1850px;
+          height: 1040px;
+          position: absolute;
+          top: 50px;
+          left: 60px;
+        }
+        /* .rTable {
+          	display: table;
+        }
+        .rTableRow {
+          	display: table-row;
+        }
+        .rTableHeading {
+          	display: table-header-group;
+        }
+        .rTableCell, .rTableHead {
+          	display: table-cell;
+          	padding: 16px 16px;
+            width: 100px;
+            vertical-align: middle;
+        }
+        .rTableHeading {
+          	display: table-header-group;
+          	font-weight: bold;
+        }
+        .rTableFoot {
+          	display: table-footer-group;
+          	font-weight: bold;
+        }
+        .rTableBody {
+          	display: table-row-group;
+        } */
+        /* #rdoStrm{
+          position: absolute;
+        }
+        #rdoSite{
+          position: absolute;
+        } */
+        /* .rTable {
+          	display: table;
+        }
+        .rTableRow {
+          	display: table-row;
+        }
+        .rTableHeading {
+          	display: table-header-group;
+        }
+        .rTableCell, .rTableHead {
+          	display: table-cell;
+          	padding: 16px 16px;
+            width: 100px;
+            vertical-align: middle;
+        }
+        .rTableHeading {
+          	display: table-header-group;
+          	font-weight: bold;
+        }
+        .rTableFoot {
+          	display: table-footer-group;
+          	font-weight: bold;
+        }
+        .rTableBody {
+          	display: table-row-group;
+        } */
+        .item {
+            display: inline-block;
+            padding: 12px;
+          	margin: 16px 16px 16px -26px;
+            width: 80px;
+            height: 80px;
+            border-radius: 66px;
+        }
+        img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+        video {
+            position: absolute;
+            object-fit: fill;
+            width: 100%;
+            height: 100vh;
+            min-height: 100%;
+        }
+        #info {
+            position: absolute;
+            top: 40px;
+            left: 360px;
+            z-index: 1;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: white;
+        }
+        /* iframe {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: 500px;
+            left: 500px;
+            z-index: 1;
+        } */
+        .plyr--full-ui {
+            z-index: 1;
+            position: absolute !important;
+            top: 30px;
+            left: 36px;
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            color: #F0F0F0;
+        }
+        .plyr--audio .plyr__controls {
+            padding: 0px !important;
+            background: none !important;
+        }
+        .plyr--audio .plyr__control:hover {
+            border-radius: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+    var allMap = new Map();
+
+    var map=new Map();
+    map.put('Icon', '1 LIVE Germany Westdeutscher - tunein.com.png');
+    map.put('Source', 'http://dg-wdr-http-fra-dtag-cdn.cast.addradio.de/wdr/1live/live/mp3/128/stream.mp3?ar-distributor=f0a1');
+    var iconFileName = map.get("Icon");
+    allMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), map);
+
+    var map=new Map();
+    map.put('Icon', '102.7 KIIS FM - radio.net.png');
+    map.put('Source', 'http://c2icyelb.prod.playlists.ihrhls.com/185_icy');
+    var iconFileName = map.get("Icon");
+    allMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), map);
+
+    var map=new Map();
+    map.put('Icon', '102.7 KIIS FM - radio.net.png');
+    map.put('Source', 'http://c2icyelb.prod.playlists.ihrhls.com/185_icy');
+    var iconFileName = map.get("Icon");
+    allMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), map);
+
+    var map=new Map();
+    map.put('Icon', 'Adult Hits US - tunein.com.png');
+    map.put('Source', 'http://tunein4.streamguys1.com/adhtsfree1?aw_0_1st.playerid=RadioTime&aw_0_1st.skey=1546605131');
+    var iconFileName = map.get("Icon");
+    allMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), map);
+
+    console.log(allMap);
+
+
+
+    function Map() {
+        var struct = function(key, value) {
+        this.key = key;
+        this.value = value;
+        }
+
+        var put = function(key, value){
+            for (var i = 0; i < this.arr.length; i++) {
+                if ( this.arr[i].key === key ) {
+                    this.arr[i].value = value;
+                    return;
+                }
+            }
+            this.arr[this.arr.length] = new struct(key, value);
+        }
+
+        var get = function(key) {
+            for (var i = 0; i < this.arr.length; i++) {
+                if ( this.arr[i].key === key ) {
+                    return this.arr[i].value;
+                }
+            }
+            return null;
+        }
+
+        var remove = function(key) {
+            var v;
+            for (var i = 0; i < this.arr.length; i++) {
+                v = this.arr.pop();
+                if ( v.key === key ) {
+                    continue;
+                }
+                this.arr.unshift(v);
+            }
+        }
+
+        var size = function() {
+            return this.arr.length;
+        }
+
+        var isEmpty = function() {
+            return this.arr.length <= 0;
+        }
+
+        this.arr = new Array();
+        this.get = get;
+        this.put = put;
+        this.remove = remove;
+        this.size = size;
+        this.isEmpty = isEmpty;
+    }
+
+    function Focus(obj) {
+        obj.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)";
+    }
+    function Unfocus(obj) {
+        obj.style.boxShadow = null;
+    }
+    function Play(obj) {
+        var imgFileName = decodeURI(obj.children[0].src.replace(/^.*[\\\/]/, ''));
+        console.log(imgFileName);
+        var key = imgFileName.substr(0, imgFileName.lastIndexOf("."));
+        console.log(key);
+        var source = allMap.get(key).get("Source");
+        console.log(source);
+
+        player.stop();
+        // player.source = {
+        //     type: 'audio',
+        //     title: 'Example title',
+        //     sources: [
+        //         {
+        //             src: 'http://c2icyelb.prod.playlists.ihrhls.com/185_icy',
+        //             type: 'audio/mp3',
+        //         },
+        //     ],
+        // };
+        document.getElementById("player").children[0].src = source;
+        document.getElementById("player").load();
+        document.getElementById("info").innerText = key;
+        player.play();
+
+    }
+    </script>
+</head>
+<body>
+    <!-- <iframe src="http://ccdocs.ocps.net/ucontent/162803eedcce4ee0a6fe42c48b8862da_en-US/index.pdf?primaryCSH=ibuy"></iframe> -->
+    <audio id="player" controls>
+        <source src="" type="audio/mp3">
+    </audio>
+    <script>const player = new Plyr('#player');</script>
+
+    <div id="info">streaming...</div>
+
+    <video autoplay="autoplay" muted loop>
+        <source src="View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" />
+    </video>
+
+    <div id="glass"></div>
+
+    <div id="main">
+        <div id="content">
+            <!-- <div class="rTable">
+                <div class="rTableRow">
+                    <div class="rTableCell"><img src="1 LIVE Germany Westdeutscher - tunein.com.png"></img></div>
+                    <div class="rTableCell"><img src="102.7 KIIS FM - radio.net.png"></img></div>
+                    <div class="rTableCell"><img src="Adult Hits US - tunein.com.png"></img></div>
+                </div>
+                <div class="rTableRow">
+                    <div class="rTableCell">John</div>
+                    <div class="rTableCell"><a href="tel:0123456785">0123 456 785</a></div>
+                    <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+                </div>
+                <div class="rTableRow">
+                    <div class="rTableCell">Cassie</div>
+                    <div class="rTableCell"><a href="tel:9876532432">9876 532 432</a></div>
+                    <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+                </div>
+                <div class="item" onmouseover="Focus(this)" onmouseout="Unfocus(this)" onclick="Play(this)">
+                    <img src="icn/1 LIVE Germany Westdeutscher - tunein.com.png"></img>
+                </div>
+                <div class="item" onmouseover="Focus(this)" onmouseout="Unfocus(this)" onclick="Play(this)">
+                    <img src="icn/Adult Hits US - tunein.com.png"></img>
+                </div>
+            </div> -->
+                <a href="itms://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=307538288">Tap 'n' Pop Classic</a>
+                <a class="item" onmouseover="Focus(this)" onmouseout="Unfocus(this)" href="pls/1 LIVE Germany Westdeutscher - tunein.com.pls">
+                    <img src="icn/1 LIVE Germany Westdeutscher - tunein.com.png"></img>
+                </a>
+                <a class="item" onmouseover="Focus(this)" onmouseout="Unfocus(this)">
+                    <img src="icn/102.7 KIIS FM - radio.net.png"></img>
+                </a>
+                <a class="item" onmouseover="Focus(this)" onmouseout="Unfocus(this)">
+                    <img src="icn/Adult Hits US - tunein.com.png"></img>
+                </a>
+            </div>
+            <script type="text/javascript">
+                // var allRadioMap = new radioMap();
+                //
+                // var radioMap=new radioMap();
+                // radioMap.put('Icon', '1 LIVE Germany Westdeutscher - tunein.com.png');
+                // radioMap.put('STREAM', 'http://dg-wdr-http-fra-dtag-cdn.cast.addradio.de/wdr/1live/live/mp3/128/stream.mp3?ar-distributor=f0a1');
+                // var iconFileName = radioMap.get("Icon");
+                // allRadioMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), radioMap);
+                //
+                // var radioMap=new radioMap();
+                // radioMap.put('Icon', '102.7 KIIS FM - radio.net.png');
+                // radioMap.put('STREAM', 'http://c2icyelb.prod.playlists.ihrhls.com/185_icy');
+                // var iconFileName = radioMap.get("Icon");
+                // allRadioMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), radioMap);
+                //
+                // var radioMap=new radioMap();
+                // radioMap.put('Icon', 'Adult Hits US - tunein.com.png');
+                // radioMap.put('STREAM', 'http://tunein4.streamguys1.com/adhtsfree1?aw_0_1st.playerid=RadioTime&aw_0_1st.skey=1546605131');
+                // var iconFileName = radioMap.get("Icon");
+                // allRadioMap.put(iconFileName.substr(0, iconFileName.lastIndexOf(".")), radioMap);
+                //
+                // console.log(allRadioMap);
+
+
+
+                var ctsStrm = "";
+                for (var key in radioMap) {
+                    // var itm = document.createElement("div");
+                    // itm.classList.add('item');
+                    // itm.addEventListener("onmouseover", function(){ Focus(this); });
+                    // itm.addEventListener("onmouseout", function(){ Unfocus(this); });
+                    // itm.addEventListener("onclick", function(){ Play(this); });
+                    //
+                    // var ime = document.createElement("img");
+                    // ime.src = "icn/" + radioMap[key].ICON;
+                    //
+                    // itm.appendChild(ime);
+                    //
+                    // document.getElementById("rdostrm").appendChild(itm);
+                    // console.log(key);
+                    // console.log(radioMap[key].ICON);
+
+                    ctsStrm += "<div class=\"item\" onmouseover=\"Focus(this)\" onmouseout=\"Unfocus(this)\" onclick=\"Play(this)\"><img src=\"icn/" + radioMap[key].ICON + "\"></img></div>";
+                }
+                document.getElementById("rdostrm").innerHTML = ctsStrm;
+
+
+                var ctsSite = "";
+                for (var key in vendorMap) {
+                    ctsSite += "<a class=\"item\" onmouseover=\"Focus(this)\" onmouseout=\"Unfocus(this)\" href=\"" + vendorMap[key].SITE + "\"><img src=\"icn/" + vendorMap[key].ICON + "\"></img></a>";
+                }
+                document.getElementById("rdosite").innerHTML = ctsSite;
+            </script>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+[playlist]
+NumberOfEntries=1
+File1=http://billboardradio.rastream.com/gfm-todaysmix?awparams=companionads%3Afalse%3Btags%3Aradioactive%3Bstationid%3Agfm-todaysmix&playerid=billboardradioachina_web&authtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvaWQiOiJsYXlsaW8iLCJpYXQiOjE1NDUyMDEyMTUsImV4cCI6MTU0NTI4NzYxNX0.fRBa0SoWYYM8Zcr4pktQlZFc3jPZfigJ9CHebsLDK2o&lan=%5B%22en%22%5D&setLanguage=true&listenerid=7473e700f12bb18e7608603e7e58da34
